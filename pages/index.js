@@ -1,5 +1,4 @@
 import styles from '../styles/Home.module.css'
-import { useEffect } from 'react'
 
 export default function Home({ posts }) {
   console.log('client');
@@ -18,7 +17,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   try {
-    const response = await fetch(strapiApi + '/courses?populate=*');
+    const response = await fetch('https://strapi-dev.cariber.co/api/courses?populate=*');
     const data = await response.json();
     return { props: { courses: data } }
   } catch (error) {
