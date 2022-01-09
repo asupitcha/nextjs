@@ -6,9 +6,10 @@ export default function Home({ posts }) {
 
   return (
     <div className={styles.container}>
+      <img src="mai_rub_roo.jpeg" alt="mai rub roo" />
       {posts.data && posts.data.map((post) => (
         <div key={post.id}>
-          <h2>{post.attributes.Title}</h2>
+          <h2>{post.attributes.speaker_name}</h2>
         </div>
       ))}
     </div>
@@ -16,10 +17,16 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  // get data from api
-  const res = await fetch('http://localhost:1337/api/posts?populate=*')
-  const posts = await res.json();
-  return {
-    props: { posts }
+  try {
+    const response = await fetch(strapiApi + '/courses?populate=*');
+    const data = await response.json();
+    return { props: { courses: data } }
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        data: JSON.stringify(error)
+      }
+    };
   }
-}
+};
