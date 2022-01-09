@@ -5,7 +5,10 @@ export default function Home({ courses }) {
 
   return (
     <div className={styles.container}>
-      <img src="mai_rub_roo.jpeg" alt="mai rub roo" />
+      <Img className="logo-image"
+        src="mai_rub_roo.jpeg" alt="mai rub roo"
+        width={40}
+        height={39.9667} />
       {courses.data && courses.data.map((post) => (
         <div key={post.id}>
           <h2>{post.attributes.speaker_name}</h2>
