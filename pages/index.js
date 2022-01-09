@@ -1,12 +1,12 @@
 import styles from '../styles/Home.module.css'
 
-export default function Home({ posts }) {
+export default function Home({ courses }) {
   console.log('client');
 
   return (
     <div className={styles.container}>
       <img src="mai_rub_roo.jpeg" alt="mai rub roo" />
-      {posts.data && posts.data.map((post) => (
+      {courses.data && courses.data.map((post) => (
         <div key={post.id}>
           <h2>{post.attributes.speaker_name}</h2>
         </div>
