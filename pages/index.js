@@ -1,4 +1,5 @@
 import styles from '../styles/Home.module.css'
+import Img from "../component/image"
 
 export default function Home({ courses }) {
   console.log('client');
