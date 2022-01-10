@@ -14,7 +14,7 @@ export default function Home({ courses }) {
         <div key={post.id}>
           <h2>{post.attributes.speaker_name}</h2>
           <Img className="feature-image"
-            src={'https://strapi-dev.cariber.co' + post.attributes.thumbnail.data.attributes.url}
+            src={'http://18.219.15.34:1337' + post.attributes.thumbnail.data.attributes.url}
             alt={post.attributes.thumbnail.data.attributes.name}
             width={262.5}
             height={147.65} />
@@ -26,7 +26,7 @@ export default function Home({ courses }) {
 
 export async function getStaticProps() {
   try {
-    const response = await fetch('https://strapi-dev.cariber.co/api/courses?populate=*');
+    const response = await fetch('http://18.219.15.34:1337/api/courses?populate=*');
     const data = await response.json();
     return { props: { courses: data } }
   } catch (error) {
